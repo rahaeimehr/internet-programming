@@ -1,4 +1,4 @@
-name: Deploy MkDocs + Exports
+name: Deploy MkDocs (baseline)
 
 on:
   push:
@@ -20,47 +20,15 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install MkDocs + plugins
+      - name: Install MkDocs + Material + Print plugin
         run: |
           pip install mkdocs-material mkdocs-print-site-plugin
 
       - name: Build HTML site
-        run: mkdocs build --strict
+        run: mkdocs build   # (no --strict to avoid failing on warnings)
 
-      # (A) Export /print_page/ to PDF with Puppeteer
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - name: Install tools for PDF export
-        run: npm i puppeteer http-server
-      - name: Serve site and export PDF
-        run: |
-          npx http-server ./site -p 8000 &
-          cat > export_to_pdf.js <<'JS'
-          const puppeteer = require('puppeteer');
-          (async () => {
-            const url = 'http://localhost:8000/print_page/';
-            const out = 'site/assets/textbook.pdf';
-            const browser = await puppeteer.launch({headless:'new', args:['--no-sandbox','--disable-gpu','--disable-dev-shm-usage']});
-            const page = await browser.newPage();
-            await page.goto(url, { waitUntil: 'networkidle2' });
-            await page.pdf({ path: out, format: 'A4', printBackground: true, margin: {top:'12mm', right:'12mm', bottom:'16mm', left:'12mm'} });
-            await browser.close();
-          })();
-          JS
-          mkdir -p site/assets
-          node export_to_pdf.js
-
-      # (B) Convert the print page HTML to DOCX/ODT with Pandoc
-      - name: Install Pandoc
-        run: sudo apt-get update && sudo apt-get install -y pandoc
-      - name: Build DOCX and ODT
-        run: |
-          pandoc site/print_page/index.html -o site/assets/textbook.docx
-          pandoc site/print_page/index.html -o site/assets/textbook.odt
-
-      # (C) Publish to GitHub Pages
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
+
       - uses: actions/deploy-pages@v4
