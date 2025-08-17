@@ -13,6 +13,9 @@ theme:
 
 plugins:
   - search
+  - print-site:
+      add_to_navigation: true        # optional: shows "Print / PDF" in navbar
+      print_page_title: "Print / PDF"  
 
 markdown_extensions:
   - admonition
