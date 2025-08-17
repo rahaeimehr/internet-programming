@@ -31,7 +31,5 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Syllabus: syllabus.md
-  - Policies:
-      - AI & Academic Integrity: policies/ai-policy.md
   - Modules:
       - "Module 1: Intro to the Web & HTML": module-01-intro-html/overview.md
