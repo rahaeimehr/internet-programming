@@ -10,11 +10,13 @@ theme:
     - navigation.expand
     - content.code.copy
     - toc.follow
+extra_css:
+  - assets/raha.css
 
 plugins:
   - search
   - print-site:
-      add_to_navigation: true        # optional: shows "Print / PDF" in navbar
+      #add_to_navigation: true        # optional: shows "Print / PDF" in navbar
       print_page_title: "Print / PDF"  
 
 markdown_extensions:

@@ -1,0 +1,39 @@
+/* Global heading tweaks (works in light & dark) */
+.md-typeset h1 {
+  font-weight: 800;
+  font-size: 2em;
+  color: var(--md-primary-fg-color);
+  padding-bottom: .25rem;
+  margin-top: 1.2rem;
+  margin-bottom: 1rem;
+  /* Fix “anchor jump” so headings aren’t hidden under the sticky header */
+  scroll-margin-top: 5rem;
+  font-size: 2em !important;
+}
+
+.md-typeset h2 {
+  font-weight: 700;
+  color: var(--md-default-fg-color);
+  border-left: .25rem solid var(--md-accent-fg-color);
+  padding-left: .6rem;
+  margin-top: 1.5rem;
+  margin-bottom: .75rem;
+  scroll-margin-top: 5rem;
+  font-size: 1.5em !important;
+}
+
+.md-typeset h3 {
+  font-weight: 600;
+  color: var(--md-default-fg-color--light);
+  letter-spacing: .2px;
+  margin-top: 1.25rem;
+  margin-bottom: .5rem;
+  scroll-margin-top: 5rem;
+  font-size: 1.2em !important;
+}
+
+
+/* Optional: finer, responsive sizes */
+.md-typeset h1 { font-size: clamp(1.6rem, 1.2rem + 1.2vw, 2.2rem); }
+.md-typeset h2 { font-size: clamp(1.3rem, 1.0rem + 0.8vw, 1.7rem); }
+.md-typeset h3 { font-size: clamp(1.1rem, 0.9rem + 0.5vw, 1.3rem); }
