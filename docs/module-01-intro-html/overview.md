@@ -488,7 +488,7 @@ What the link points to:
 !!! note "Relative paths quick guide"
     - `./` = current folder
     - `../` = go up one folder.  
-    - From `modul-01/index.html` to `assets/imgs/firstcode.png` the path is `../assets/imgs/firstcode.png`.
+    - Assuming `modul-01` and `assets` are at the same folder, from `modul-01/index.html` to `assets/imgs/firstcode.png` the path is `../assets/imgs/firstcode.png`.
 
 #### `target` (optional)
 Controls **where** to open the link. To open the link in a new tab, it is value must be set to `_blank`.
