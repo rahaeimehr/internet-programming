@@ -1,6 +1,7 @@
 # CSCI 3600 — Internet Programming
 
-Welcome! This textbook follows our 12-module course.
+Welcome! This course provides a practical introduction to building websites with **Node.js** and covers the foundational concepts of **HTML**, **CSS**, and **JavaScript**.
+
 
 <!-- ## Book
 
