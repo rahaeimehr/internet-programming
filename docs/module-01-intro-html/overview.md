@@ -482,7 +482,7 @@ What the link points to:
 - **Email / phone / other schemes**  
   ```html
   <a href="mailto:info@example.com">Email us</a>
-  <a href="tel:+17065551234">Call</a>
+  <a href="tel:+11111111111">Call</a>
   ```
 
 !!! note "Relative paths quick guide"
