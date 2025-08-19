@@ -549,5 +549,10 @@ Controls **where** to open the link. To open the link in a new tab, it is value 
 ???+ "Output of the code"
     ![Result of the HTML code](../assets/imgs/firstcode.png){ width=600 }
 
+## Helper Video
+
+📺 [Watch this video on YouTube](https://youtu.be/yiBICwzwsoY)
+
+
 
 
