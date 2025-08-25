@@ -37,4 +37,5 @@ nav:
   - Home: index.md
   - Syllabus: syllabus.md
   - Modules:
-      - "Module 1: Intro to the Web & HTML": module-01-intro-html/overview.md
+      - "Module 1: Intro to the Web & HTML": module-01-intro-html/index.md
+      - "Module 2: Intro to CSS": module-02-intro-css/index.md

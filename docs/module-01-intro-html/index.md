@@ -1,5 +1,23 @@
 # Module 1 — Introduction to the Web & HTML Basics
 
+> **Week:** 1
+> **Focus:** Web foundations — internet architecture, how the web works (client/server, HTTP, DNS), VS Code setup, HTML5 structure & essential tags
+
+---
+
+!!! note "Learning Outcomes"
+    By the end of this module, you will be able to:
+
+    - Distinguish the **Internet** from the **Web** and describe, at a high level, how requests travel between **browser**, **DNS**, and **web server**.
+    - Trace the **request–response cycle** (URL → DNS lookup → HTTP request → server response → render in the browser).
+    - Set up **VS Code** and use **Live Preview** from the **Explorer** view (right-click an HTML file → **Show Preview**).
+    - Author a valid **HTML5 document**: `<!doctype html>`, `<html lang>`, `<head>` (with `meta` and `<title>`), and `<body>`.
+    - Explain the **anatomy of an HTML element** (opening tag, content, closing tag) and how **attributes** work (defaults and how to change them).
+    - Use essential tags: headings (`<h1>…<h6>`), paragraphs (`<p>`), line breaks (`<br>`), horizontal rule (`<hr>`), bold/italic (`<b>`, `<i>`), and comments.
+    - Create links with `<a>` using `href` and `target` (internal vs. external links, absolute vs. relative paths).
+    - Insert images with `<img>` and meaningful `alt` text; understand file paths for assets.
+    - Organize a simple page with core **semantic elements** (e.g., `<header>`, `<nav>`, `<main>`, `<section>`, `<footer>` — excluding `article` and `aside` for this course).
+    - Build and submit a **simple static web page** that follows proper indentation, nesting, and basic accessibility practices.
 
 ## 1.1 History and Architecture of the Internet
 
