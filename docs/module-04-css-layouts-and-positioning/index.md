@@ -97,6 +97,63 @@ Elements with `position: sticky;` act like relative until you scroll past them, 
         top: 0;
     }
     ```
+### Stacking Order and `z-index`
+
+When elements overlap, the browser decides which one should be shown **on top**. This is called the **stacking order**.  
+
+By default:
+
+- Elements that appear later in the HTML are placed above earlier ones.
+- Positioning (`relative`, `absolute`, `fixed`, `sticky`) makes an element eligible for stacking order control.
+
+The **`z-index` property** lets us change this order.  
+
+- Higher values appear **in front** of lower values.  
+- Negative values push elements **behind** others.  
+- `z-index` only works on elements with a `position` other than `static`.  
+
+!!! note "Quick Rule"
+    If two elements overlap, the one with the **higher `z-index`** will be visible on top.
+
+
+!!! example
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <title>z-index Example</title>
+      <style>
+        .box {
+          width: 150px;
+          height: 150px;
+          position: absolute;
+        }
+        .red {
+          background: red;
+          top: 40px;
+          left: 40px;
+          z-index: 2; /* higher → on top */
+        }
+        .green {
+          background: green;
+          top: 80px;
+          left: 80px;
+          z-index: 1; /* shows behind green */
+        }
+      </style>
+    </head>
+    <body>
+      <div class="box red"></div>
+      <div class="box green"></div>
+    </body>
+    </html>
+    ```
+
+In this example:
+
+- The red box appears first in the code but has `z-index: 2`.  
+- The green box has `z-index: 1`, so it shows behind red.  
 
 ##4.3 Float and Clear
 
