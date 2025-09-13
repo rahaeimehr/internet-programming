@@ -41,3 +41,4 @@ nav:
       - "Module 2: Intro to CSS": module-02-intro-css/index.md
       - "Module 3: HTML Advanced & Media Embedding": module-03-advanced-html/index.md
       - "Module 4: CSS Layouts and Positioning": module-04-css-layouts-and-positioning/index.md
+      - "Module 5:  Responsive Design & Media Queries": module-05-responsive-design/index.md

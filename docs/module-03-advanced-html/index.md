@@ -1,9 +1,8 @@
 # Module 3 — HTML Advanced & Media Embedding
 
-> **Week:** 3  
+> **Week:** 3 <br> 
 > **Focus:** Lists, tables, forms, and media (images, audio, video, iframe) with accessibility best practices
 
----
 
 ## 3.1 Learning Outcomes
 

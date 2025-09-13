@@ -1,7 +1,8 @@
 # Module 4 — CSS Layouts and Positioning
 
-> **Week:** 4
+> **Week:** 4 <br>
 > **Focus:** Page layouts and element positioning with CSS
+
 
 !!! note "Learning Outcomes" 
     By the end of this module, you will be able to:

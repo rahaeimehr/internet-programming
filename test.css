@@ -1,0 +1,170 @@
+/* ===============================
+   Base / Reset (kept minimal)
+   =============================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* COMMENT: predictable sizing incl. padding/border */
+}
+
+body {
+  margin: 0;              /* Remove default margin to control layout fully */
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.5;
+  color: #222;
+  background: #fafafa;
+}
+
+/* ===============================
+   Header & Nav
+   =============================== */
+.site-header {
+  background: #1f6feb;
+  color: #fff;
+  padding: 1.25rem 1rem;  /* COMMENT: generous padding for visual separation */
+}
+
+.site-header h1 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.5rem;
+}
+
+.byline {
+  margin: 0;
+  opacity: 0.9;
+}
+
+.site-nav {
+  background: #0d1117;
+}
+
+.site-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0.75rem;
+  display: flex;          /* COMMENT: inline nav items with spacing control */
+  gap: 1rem;
+}
+
+.site-nav a {
+  color: #c9d1d9;
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+}
+
+.site-nav a:hover,
+.site-nav a:focus {
+  background: #161b22;
+  outline: none;
+}
+
+/* ===============================
+   Positioned Elements
+   =============================== */
+
+/* Absolute: positioned relative to the page (initial containing block) */
+.floating-box {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #ffd166;
+  color: #111;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(0,0,0,0.15);
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  /* COMMENT: absolute clears normal flow; used for small decorative/utility UI */
+}
+
+/* Sticky: sticks to the top once it reaches it while scrolling its container */
+.sticky-note {
+  position: sticky;
+  top: 0;                 /* COMMENT: threshold at which it sticks */
+  z-index: 10;            /* Stay above content while scrolling */
+  background: #fff3bf;    /* sticky "note" look */
+  border: 1px dashed #e0c24e;
+  padding: 0.75rem 1rem;
+  margin: 0;              /* no margin collapse surprises at the top edge */
+}
+
+/* Fixed footer bar: stays at the viewport bottom at all times */
+.fixed-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #111827;
+  color: #e5e7eb;
+  text-align: center;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.95rem;
+  z-index: 1000;
+  /* COMMENT: fixed is removed from normal flow and anchored to viewport */
+}
+
+/* Add bottom padding to avoid content being hidden under the fixed bar */
+body {
+  padding-bottom: 48px;   /* adjust to match .fixed-footer height */
+}
+
+/* ===============================
+   Main Layout (Flexbox)
+   =============================== */
+.content {
+  display: flex;          /* COMMENT: turn normal block flow into columns */
+  gap: 1.25rem;
+  padding: 1rem;
+  max-width: 1100px;
+  margin: 0 auto;         /* center the main area on large screens */
+}
+
+.left-col,
+.right-col {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  min-height: 280px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+/* Use flex-basis to form a clear two-column layout */
+.left-col {
+  flex: 1 1 40%;
+}
+
+.right-col {
+  flex: 1 1 60%;
+}
+
+.nice-list {
+  margin: 0.5rem 0 0 1rem;
+}
+
+/* ===============================
+   Footer (Normal Flow)
+   =============================== */
+.site-footer {
+  padding: 1rem;
+  text-align: center;
+  color: #374151;
+  border-top: 1px solid #e5e7eb;
+  background: #f8fafc;
+}
+
+/* ===============================
+   Simple Responsiveness
+   =============================== */
+@media (max-width: 720px) {
+  .content {
+    flex-direction: column;  /* stack columns on small screens */
+  }
+  .floating-box {
+    /* keep it visible but avoid overlapping small headers too much */
+    top: 8px;
+    right: 8px;
+    font-size: 0.9rem;
+  }
+}
