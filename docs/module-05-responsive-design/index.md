@@ -74,27 +74,6 @@ Setting `width=device-width` makes the **layout viewport** match the device’s 
 - `margin: 0 auto` horizontally centers the wrapper when there is extra space.
 - `padding` adds consistent inner breathing room so content doesn’t touch the edges.
 
-### Percentages for Columns
-
-```css
-.columns {
-  display: flex;
-  gap: 1rem;
-}
-.col {
-  flex: 1 1 0;       /* let columns grow/shrink */
-}
-/* Example: make the first column a bit wider */
-.col--wide { flex-basis: 60%; }
-.col--narrow { flex-basis: 40%; }
-```
-
-*Explanation:* 
-
-- Setting `.columns` to `display: flex` lays children side‑by‑side and distributes space between them with `gap`. 
-- The shorthand `flex: 1 1 0` means **grow: 1**, **shrink: 1**, **flex‑basis: 0**—each column can expand to fill available space and contract when space is tight. 
-- The modifier classes simply bias the share of width (e.g., 60% vs 40%) on wider screens. On very small screens you would typically switch to a stacked layout using media queries from §5.4.
-
 ### Images that Scale
 
 ```css
@@ -116,6 +95,29 @@ img {
     - `%` — relative to the parent size; great for columns that share available space. 
     - `rem` — relative to the root (`html`) font size; ideal for type scales and consistent spacing. 
     - `vh`/`vw` — 1% of the viewport height/width; useful for full‑width banners or hero sections.
+
+
+
+### Percentages for Columns
+
+```css
+.columns {
+  display: flex;
+  gap: 1rem;
+}
+.col {
+  flex: 1 1 0;       /* let columns grow/shrink */
+}
+/* Example: make the first column a bit wider */
+.col--wide { flex-basis: 60%; }
+.col--narrow { flex-basis: 40%; }
+```
+
+*Explanation:* 
+
+- Setting `.columns` to `display: flex` lays children side‑by‑side and distributes space between them with `gap`. 
+- The shorthand `flex: 1 1 0` means **grow: 1**, **shrink: 1**, **flex‑basis: 0**—each column can expand to fill available space and contract when space is tight. 
+- The modifier classes simply bias the share of width (e.g., 60% vs 40%) on wider screens. On very small screens you would typically switch to a stacked layout using media queries from §5.4.
 
 ---
 
