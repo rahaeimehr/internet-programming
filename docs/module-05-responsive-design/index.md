@@ -61,7 +61,7 @@ Setting `width=device-width` makes the **layout viewport** match the device’s 
 
 ```css
 /* Let the layout breathe on any screen */
-.wrapper {
+#wrapper {
   max-width: 1100px;   /* prevent ultra-wide lines on big screens */
   margin: 0 auto;      /* center on wide screens */
   padding: 1rem;       /* comfortable side spacing */
