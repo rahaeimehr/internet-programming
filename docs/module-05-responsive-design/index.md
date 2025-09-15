@@ -211,7 +211,16 @@ Sometimes it’s useful to split your responsive CSS into multiple files and let
 
 ---
 
-## 5.5 Some Responsive Design Recommendations
+## 5.5 More on Flexible Layouts
+
+### Testing & debugging your responsive layout
+
+- Use the **Device Toolbar** in browser DevTools (Chrome/Edge/Firefox) to emulate common screen sizes.
+- Test both **portrait** and **landscape** orientations.
+- Check for **horizontal scrolling** on narrow screens; if it appears, inspect which element is overflowing.
+- Inspect **computed styles** and **active media queries** to see which rules are currently applied.
+
+---
 
 ### Typography that scales
 
@@ -270,35 +279,6 @@ Start vertical for phones; switch to horizontal on wider screens.
 
 - defaulting to a column uses the available vertical space on phones. 
 - A single `min-width` query flips to a row, matching common desktop navigation without extra markup or JS.
-
----
-
-### Images that behave
-For images: 
-
-- Use CSS to prevent overflow and preserve aspect ratio:
-
-```css
-img { max-width: 100%; height: auto; display: block; }
-```
-
-- Export assets at a sensible size (don’t upload a 5000px image for an 800px slot).
-- Advanced HTML features like `srcset`/`sizes` are **optional** in this course.
-
-*Why this works:* 
-
-- `max-width: 100%` keeps images inside their layout column.
-- `height: auto` prevents stretching or squashing. 
-- `display: block` removes the small inline gap some layouts show beneath images.
-
----
-
-### Testing & debugging your responsive layout
-
-- Use the **Device Toolbar** in browser DevTools (Chrome/Edge/Firefox) to emulate common screen sizes.
-- Test both **portrait** and **landscape** orientations.
-- Check for **horizontal scrolling** on narrow screens; if it appears, inspect which element is overflowing.
-- Inspect **computed styles** and **active media queries** to see which rules are currently applied.
 
 
 
