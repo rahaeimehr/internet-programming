@@ -189,27 +189,19 @@ Sometimes it’s useful to split your responsive CSS into multiple files and let
     - Many browsers will still **download** linked stylesheets even if the media doesn’t currently match (they may defer applying). Keep the number of files modest. 
     - **Order matters**: later stylesheets can override earlier ones if selectors have equal specificity.
 
-**Mini example (same layout as §5.4)**
 
-`base.css`
+!!! tip "Starter Files"
+    📂 [Download starter files (ZIP)](../assets/files/5_4_starter.zip)  
+    <iframe width="100%" height="315"
+    src="https://youtu.be/yiBICwzwsoY"
+    title="YouTube video player" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe>
 
-```css
-.cards { display: grid; gap: 1rem; grid-template-columns: 1fr; }
-```
-
-`mq-600.css`
-
-```css
-.cards { grid-template-columns: 1fr 1fr; }
-```
-
-`mq-900.css`
-
-```css
-.cards { grid-template-columns: 1fr 1fr 1fr; }
-```
 
 ---
+
+
 
 ## 5.5 More on Flexible Layouts
 
