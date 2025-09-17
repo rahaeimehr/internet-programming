@@ -74,6 +74,13 @@ Setting `width=device-width` makes the **layout viewport** match the device’s 
 - `margin: 0 auto` horizontally centers the wrapper when there is extra space.
 - `padding` adds consistent inner breathing room so content doesn’t touch the edges.
 
+!!! tip "Helper Video"
+    <iframe width="100%" height="315"
+    src="https://www.youtube.com/embed/hzDtsKxUeUQ?si=QuvtaLLQE1GvnLNm"
+    title="YouTube video player" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe>
+
 ### Images that Scale
 
 ```css
@@ -96,6 +103,12 @@ img {
     - `rem` — relative to the root (`html`) font size; ideal for type scales and consistent spacing. 
     - `vh`/`vw` — 1% of the viewport height/width; useful for full‑width banners or hero sections.
 
+!!! tip "Helper Video"
+    <iframe width="100%" height="315"
+    src="https://www.youtube.com/embed/BfQG4aPkeE0?si=KLs5x9L-eyLc81PQ"
+    title="YouTube video player" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe>
 
 
 ### Percentages for Columns
@@ -119,6 +132,12 @@ img {
 - The shorthand `flex: 1 1 0` means **grow: 1**, **shrink: 1**, **flex‑basis: 0**—each column can expand to fill available space and contract when space is tight. 
 - The modifier classes simply bias the share of width (e.g., 60% vs 40%) on wider screens. On very small screens you would typically switch to a stacked layout using media queries from §5.4.
 
+!!! tip "Helper Video"
+    <iframe width="100%" height="315"
+    src="https://www.youtube.com/embed/JbDVMq_ltEw?si=2Pup5LCqHB5hKP81"
+    title="YouTube video player" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe>
 ---
 
 ## 5.4 Media Queries & Breakpoints
@@ -190,14 +209,14 @@ Sometimes it’s useful to split your responsive CSS into multiple files and let
     - **Order matters**: later stylesheets can override earlier ones if selectors have equal specificity.
 
 
-!!! tip "Starter Files"
+<!--!!! tip "Helper video"
     📂 [Download starter files (ZIP)](../assets/files/5_4_starter.zip)  
     <iframe width="100%" height="315"
-    src="https://youtu.be/yiBICwzwsoY"
+    src="https://www.youtube.com/embed/yiBICwzwsoY?si=-Jv1YWCfdBSJxpGR"
     title="YouTube video player" frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen></iframe>
-
+-->
 
 ---
 
@@ -280,4 +299,3 @@ Start vertical for phones; switch to horizontal on wider screens.
     - Absolute positioning for major layout often breaks responsiveness. 
     - Forgetting the viewport meta tag leads to zoomed‑out pages on mobile.
 
-3
