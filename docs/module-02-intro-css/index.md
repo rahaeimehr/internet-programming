@@ -1,6 +1,5 @@
 # Module 2 — Introduction to CSS
 
-> **Week:** 2 <br> 
 > **Focus:** CSS fundamentals — syntax, selectors, the box model, colors/units, spacing
 
 

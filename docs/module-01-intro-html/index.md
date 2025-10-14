@@ -1,6 +1,5 @@
 # Module 1 — Introduction to the Web & HTML Basics
 
-> **Week:** 1 <br>
 > **Focus:** Web foundations — internet architecture, how the web works (client/server, HTTP, DNS), VS Code setup, HTML5 structure & essential tags
 
 

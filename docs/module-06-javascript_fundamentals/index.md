@@ -1,6 +1,5 @@
 # Module 6 — JavaScript Fundamentals
 
-> **Week:** 6<br>
 > **Focus:** JavaScript basics — syntax, variables, operators, functions, conditionals, loops, ES6 features, DOM, and events
 
 !!! note "Learning Outcomes" 

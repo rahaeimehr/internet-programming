@@ -1,6 +1,5 @@
 # Module 5 — Responsive Design & Media Queries
 
-> **Week:** 5<br>
 > **Focus:** Mobile‑first thinking, flexible layouts, and CSS media queries
 
 !!! note "Learning Outcomes" 

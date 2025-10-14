@@ -1,45 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
+<form id="signupForm">
+  <label for="username">Username (3–16 letters, numbers, or _)</label>
+  <input type="text" id="username" placeholder="Enter username">
+  <p id="uErr" class="error"></p>
+  <button type="submit">Create Account</button>
+</form>
 
-<head>
-  <meta charset="UTF-8">
-  <title>Assignment 2 Starter Page</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+<script>
+// Get form and input elements
+const form = document.getElementById('signupForm');
+const username = document.getElementById('username');
+const uErr = document.getElementById('uErr');
 
-<body>
-  <header id="main-header">
-    <h1>Welcome to My Website</h1>
-    <p class="subtitle">A simple page for practicing CSS selectors</p>
-  </header>
+// Regex: 3–16 letters, numbers, or underscore
+const userRe = /^[A-Za-z0-9_]{3,16}$/;
 
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
-  </nav>
+// Helper functions to set or clear error messages
+function setError(msg) { uErr.textContent = msg; }
+function clearError() { uErr.textContent = ''; }
 
-  <main>
-    <div id="intro">
-      <h2>Introduction</h2>
-      <p>This is a <span class="highlight">sample paragraph</span> to demonstrate CSS styling.</p>
-    </div>
-
-    <div class="content">
-      <h2>Main Content</h2>
-      <p class="first">This is the first paragraph inside the content div.</p>
-      <p>This is another paragraph inside the content div.</p>
-      <div class="extra">
-        <h3>Extra Box</h3>
-        <p>Some extra information goes here.</p>
-      </div>
-    </div>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 My Website</p>
-    <p class="note">Footer text styled differently</p>
-  </footer>
-</body>
-
-</html>
+// Validate on submit
+form.addEventListener('submit', e => {
+  const value = username.value.trim();
+  if (!userRe.test(value)) {
+    setError('Username must be 3–16 characters: letters, numbers, or _');
+    e.preventDefault(); // Stop form submission if invalid
+  } else {
+    clearError();
+    e.preventDefault(); // Prevent reload during demo
+    alert('Form submitted successfully!');
+  }
+});
+</script>

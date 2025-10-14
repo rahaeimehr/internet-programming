@@ -1,10 +1,7 @@
 # Module 3 — HTML Advanced & Media Embedding
 
-> **Week:** 3 <br> 
 > **Focus:** Lists, tables, forms, and media (images, audio, video, iframe) with accessibility best practices
 
-
-## 3.1 Learning Outcomes
 
 !!! note "Learning Outcomes"
     By the end of this module, you will be able to:
@@ -16,11 +13,11 @@
     
 ---
 
-## 3.2 Lists — Ordered, Unordered
+## 3.1 Lists — Ordered, Unordered
 
 Use lists when items are related. Choose the list type that matches the **meaning** of your content, not just the look. Lists also help assistive technologies announce structure (e.g., “list of 5 items”).
 
-### 3.2.1 Unordered lists (`<ul>`) — when order **does not** matter
+### 3.1.1 Unordered lists (`<ul>`) — when order **does not** matter
 Use for collections where sequence isn’t important (features, groceries, tags).
 
 ```html
@@ -59,7 +56,7 @@ ul.nav { list-style: none; margin: 0; padding: 0; }  /* for menus; remove defaul
 
 ---
 
-### 3.2.2 Ordered lists (`<ol>`) — when order **does** matter
+### 3.1.2 Ordered lists (`<ol>`) — when order **does** matter
 
 Use for steps, rankings, or sequences.
 
@@ -94,7 +91,7 @@ Use for steps, rankings, or sequences.
 
 --- 
 
-## 3.3 Tables — Structure & Accessibility
+## 3.2 Tables — Structure & Accessibility
 
 Use tables for **tabular data** (not page layout). Keep them simple: clear headers, a short description, and readable spacing.
 
@@ -227,7 +224,7 @@ caption { caption-side: top; font-weight: 600; margin-bottom: .5rem; }
 
 ---
 
-## 3.4 Forms — Inputs, Labels, Validation
+## 3.3 Forms — Inputs, Labels, Validation
 
 Use forms to collect input from users. Keep structure simple and always label your inputs.
 
@@ -404,11 +401,11 @@ button { margin-top: .75rem; }
 
 ---
 
-## 3.5 Media — Images, Audio, Video, and YouTube
+## 3.4 Media — Images, Audio, Video, and YouTube
 
 Embed media to enrich your page. Keep it simple, add helpful text, and choose sensible attributes.
 
-### 3.5.1 Images (`<img>`)
+### 3.4.1 Images (`<img>`)
 Use images for content that adds meaning. Always include **alt text**.
 
 ```html
@@ -425,7 +422,7 @@ Use images for content that adds meaning. Always include **alt text**.
 
 ---
 
-### 3.5.2 Audio (`<audio>`)
+### 3.4.2 Audio (`<audio>`)
 
 Provide **controls** so users can play/pause. Include a short fallback message.
 
@@ -446,7 +443,7 @@ Provide **controls** so users can play/pause. Include a short fallback message.
 
 ---
 
-### 3.5.3 Video (`<video>`)
+### 3.4.3 Video (`<video>`)
 
 Give users controls and a **poster** image.
 
@@ -464,7 +461,7 @@ Give users controls and a **poster** image.
 
 ---
 
-### 3.5.4 YouTube (via `<iframe>`)
+### 3.4.4 YouTube (via `<iframe>`)
 
 Use the **embed** URL and a short, descriptive title. Keep attributes minimal.
 
