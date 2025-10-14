@@ -86,7 +86,54 @@ In this example, JavaScript finds the first list item and changes its color, the
 
 ---
 
-## 7.2 Handling User Input and Form Validation
+## 7.2 Handling Events
+
+Events are actions that happen in the browser — clicks, mouse movements, keystrokes, and more. JavaScript can listen for these events and respond.
+
+### 7.2.1 Adding Event Listeners
+```javascript
+const button = document.querySelector('button');
+button.addEventListener('click', () => {
+  alert('Button clicked!');
+});
+```
+When the button is clicked, the code inside the arrow function runs.
+
+### 7.2.2 Event Object
+When an event occurs, the browser sends an **event object** with information about it.
+```javascript
+document.addEventListener('click', (e) => {
+  console.log('You clicked on:', e.target);
+});
+```
+`e.target` refers to the specific element that triggered the event.
+
+### 7.2.3 Using `closest()` in Event Handling
+When you attach an event listener to a parent element (such as a `<ul>` or `<div>`), the `event.target` refers to the exact element that triggered the event — which could be a child element deep inside the structure.
+
+To handle clicks reliably on a specific type of element (like a `<button>`), we use the **`closest()`** method.
+
+```javascript
+list.addEventListener('click', (e) => {  // Assume list already points to an <ul> element
+  const btn = e.target.closest('button');
+  if (btn) {
+    console.log('Button clicked:', btn.className);
+  }
+});
+```
+
+**How it works:**
+
+- `e.target` → the element that was actually clicked.
+- `.closest('button')` → starts from that element and moves **up the DOM tree** to find the nearest `<button>` ancestor (including itself).
+- If no matching ancestor exists, it returns `null`.
+
+!!! Tip
+    `closest()` is extremely useful for **event delegation** — you can attach a single listener to a parent container instead of adding separate listeners to every button. This makes your code more efficient and easier to maintain.
+
+
+---
+## 7.3 Handling User Input and Form Validation
 
 You can use JavaScript to **validate user input** before sending data to the server. Even though basic validation (like required fields or input types) can be done using HTML itself, JavaScript allows us to perform more complex and customized validations.
 
@@ -146,54 +193,6 @@ To check if a string matches a regex, use `.test()`. For example, `userRe.test(i
     Always validate user input **both on the client (JavaScript)** and **on the server (Node.js)** for security.
 
 ---
-## 7.3 Handling Events
-
-Events are actions that happen in the browser — clicks, mouse movements, keystrokes, and more. JavaScript can listen for these events and respond.
-
-### 7.3.1 Adding Event Listeners
-```javascript
-const button = document.querySelector('button');
-button.addEventListener('click', () => {
-  alert('Button clicked!');
-});
-```
-When the button is clicked, the code inside the arrow function runs.
-
-### 7.3.2 Event Object
-When an event occurs, the browser sends an **event object** with information about it.
-```javascript
-document.addEventListener('click', (e) => {
-  console.log('You clicked on:', e.target);
-});
-```
-`e.target` refers to the specific element that triggered the event.
-
-### 7.3.3 Using `closest()` in Event Handling
-When you attach an event listener to a parent element (such as a `<ul>` or `<div>`), the `event.target` refers to the exact element that triggered the event — which could be a child element deep inside the structure.
-
-To handle clicks reliably on a specific type of element (like a `<button>`), we use the **`closest()`** method.
-
-```javascript
-list.addEventListener('click', (e) => {  // Assume list already points to an <ul> element
-  const btn = e.target.closest('button');
-  if (btn) {
-    console.log('Button clicked:', btn.className);
-  }
-});
-```
-
-**How it works:**
-
-- `e.target` → the element that was actually clicked.
-- `.closest('button')` → starts from that element and moves **up the DOM tree** to find the nearest `<button>` ancestor (including itself).
-- If no matching ancestor exists, it returns `null`.
-
-!!! Tip
-    `closest()` is extremely useful for **event delegation** — you can attach a single listener to a parent container instead of adding separate listeners to every button. This makes your code more efficient and easier to maintain.
-
-
----
-
 ## 7.4 Browser Interaction: Timers, Alerts, and APIs
 
 JavaScript can interact directly with the browser environment to make web pages more dynamic.
