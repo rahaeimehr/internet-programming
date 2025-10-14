@@ -146,12 +146,59 @@ To check if a string matches a regex, use `.test()`. For example, `userRe.test(i
     Always validate user input **both on the client (JavaScript)** and **on the server (Node.js)** for security.
 
 ---
+## 7.3 Handling Events
 
-## 7.3 Browser Interaction: Timers, Alerts, and APIs
+Events are actions that happen in the browser — clicks, mouse movements, keystrokes, and more. JavaScript can listen for these events and respond.
+
+### 7.3.1 Adding Event Listeners
+```javascript
+const button = document.querySelector('button');
+button.addEventListener('click', () => {
+  alert('Button clicked!');
+});
+```
+When the button is clicked, the code inside the arrow function runs.
+
+### 7.3.2 Event Object
+When an event occurs, the browser sends an **event object** with information about it.
+```javascript
+document.addEventListener('click', (e) => {
+  console.log('You clicked on:', e.target);
+});
+```
+`e.target` refers to the specific element that triggered the event.
+
+### 7.3.3 Using `closest()` in Event Handling
+When you attach an event listener to a parent element (such as a `<ul>` or `<div>`), the `event.target` refers to the exact element that triggered the event — which could be a child element deep inside the structure.
+
+To handle clicks reliably on a specific type of element (like a `<button>`), we use the **`closest()`** method.
+
+```javascript
+list.addEventListener('click', (e) => {  // Assume list already points to an <ul> element
+  const btn = e.target.closest('button');
+  if (btn) {
+    console.log('Button clicked:', btn.className);
+  }
+});
+```
+
+**How it works:**
+
+- `e.target` → the element that was actually clicked.
+- `.closest('button')` → starts from that element and moves **up the DOM tree** to find the nearest `<button>` ancestor (including itself).
+- If no matching ancestor exists, it returns `null`.
+
+!!! Tip
+    `closest()` is extremely useful for **event delegation** — you can attach a single listener to a parent container instead of adding separate listeners to every button. This makes your code more efficient and easier to maintain.
+
+
+---
+
+## 7.4 Browser Interaction: Timers, Alerts, and APIs
 
 JavaScript can interact directly with the browser environment to make web pages more dynamic.
 
-### 7.3.1 Alerts and Prompts
+### 7.4.1 Alerts and Prompts
 
 These simple methods display dialogs in the browser. The difference is that `alert` simply shows a message and waits for the user to press OK, while `prompt` displays a message and allows the user to input text that can be stored in a variable.
 
@@ -161,7 +208,7 @@ const name = prompt("What is your name?");
 console.log("User name:", name);
 ```
 
-### 7.3.2 Timers
+### 7.4.2 Timers
 
 Use `setTimeout()` to run code once after a delay, or `setInterval()` to repeat code at a regular interval. Both functions take two parameters:
 
@@ -174,7 +221,7 @@ const id = setInterval(() => console.log('Repeats every 1s'), 1000);
 setTimeout(() => clearInterval(id), 5000); // Stop after 5s
 ```
 
-### 7.3.3 Accessing Browser APIs
+### 7.4.3 Accessing Browser APIs
 
 The web browser provides many built‑in **APIs (Application Programming Interfaces)** that allow JavaScript to communicate with different parts of the browser and device.
 

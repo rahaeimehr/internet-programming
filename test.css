@@ -1,170 +1,140 @@
-/* ===============================
-   Base / Reset (kept minimal)
-   =============================== */
-*,
-*::before,
-*::after {
-  box-sizing: border-box; /* COMMENT: predictable sizing incl. padding/border */
+:root {
+  --bg: #0f172a;        /* slate-900 */
+  --panel: #111827;     /* gray-900 */
+  --text: #e5e7eb;      /* gray-200 */
+  --muted: #94a3b8;     /* slate-400 */
+  --primary: #3b82f6;   /* blue-500 */
+  --green: #22c55e;     /* green-500 */
+  --red: #ef4444;       /* red-500 */
+  --border: #1f2937;    /* gray-800 */
+  --shadow: rgba(0,0,0,0.25);
 }
+
+* { box-sizing: border-box; }
 
 body {
-  margin: 0;              /* Remove default margin to control layout fully */
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  line-height: 1.5;
-  color: #222;
-  background: #fafafa;
-}
-
-/* ===============================
-   Header & Nav
-   =============================== */
-.site-header {
-  background: #1f6feb;
-  color: #fff;
-  padding: 1.25rem 1rem;  /* COMMENT: generous padding for visual separation */
-}
-
-.site-header h1 {
-  margin: 0 0 0.25rem 0;
-  font-size: 1.5rem;
-}
-
-.byline {
   margin: 0;
-  opacity: 0.9;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue",
+               Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji",
+               "Segoe UI Symbol";
+  background: radial-gradient(1200px 800px at 20% -10%, #1e293b 0, #0b1220 60%, #090e1a 100%), var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
 }
 
-.site-nav {
-  background: #0d1117;
+.container {
+  width: min(760px, 92vw);
+  background: linear-gradient(180deg, #111827, #0f172a);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 20px 60px var(--shadow);
 }
 
-.site-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0.5rem 0.75rem;
-  display: flex;          /* COMMENT: inline nav items with spacing control */
-  gap: 1rem;
+h1 {
+  margin: 0 0 16px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
 }
 
-.site-nav a {
-  color: #c9d1d9;
-  text-decoration: none;
-  padding: 0.5rem 0.75rem;
-  border-radius: 0.5rem;
+#todoForm {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  margin-bottom: 12px;
 }
 
-.site-nav a:hover,
-.site-nav a:focus {
-  background: #161b22;
+#taskInput {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #0b1220;
+  color: var(--text);
   outline: none;
 }
+#taskInput::placeholder { color: var(--muted); }
 
-/* ===============================
-   Positioned Elements
-   =============================== */
-
-/* Absolute: positioned relative to the page (initial containing block) */
-.floating-box {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: #ffd166;
-  color: #111;
-  padding: 0.5rem 0.75rem;
-  border-radius: 0.5rem;
-  border: 1px solid rgba(0,0,0,0.15);
-  font-weight: 600;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-  /* COMMENT: absolute clears normal flow; used for small decorative/utility UI */
+#addBtn {
+  padding: 12px 16px;
+  border: 1px solid #264fa0;
+  background: linear-gradient(180deg, #2b6cf6, #1d4ed8);
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
 }
+#addBtn:hover { filter: brightness(1.06); }
 
-/* Sticky: sticks to the top once it reaches it while scrolling its container */
-.sticky-note {
-  position: sticky;
-  top: 0;                 /* COMMENT: threshold at which it sticks */
-  z-index: 10;            /* Stay above content while scrolling */
-  background: #fff3bf;    /* sticky "note" look */
-  border: 1px dashed #e0c24e;
-  padding: 0.75rem 1rem;
-  margin: 0;              /* no margin collapse surprises at the top edge */
-}
-
-/* Fixed footer bar: stays at the viewport bottom at all times */
-.fixed-footer {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #111827;
-  color: #e5e7eb;
-  text-align: center;
-  padding: 0.5rem 0.75rem;
+.meta {
+  color: var(--muted);
   font-size: 0.95rem;
-  z-index: 1000;
-  /* COMMENT: fixed is removed from normal flow and anchored to viewport */
+  margin: 6px 2px 14px;
 }
 
-/* Add bottom padding to avoid content being hidden under the fixed bar */
-body {
-  padding-bottom: 48px;   /* adjust to match .fixed-footer height */
+#taskList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-/* ===============================
-   Main Layout (Flexbox)
-   =============================== */
-.content {
-  display: flex;          /* COMMENT: turn normal block flow into columns */
-  gap: 1.25rem;
-  padding: 1rem;
-  max-width: 1100px;
-  margin: 0 auto;         /* center the main area on large screens */
+.todo {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 8px;
+  align-items: center;
+  background: #0b1220;
+  border: 1px solid var(--border);
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  border-radius: 12px;
 }
 
-.left-col,
-.right-col {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 0.75rem;
-  padding: 1rem;
-  min-height: 280px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+.todo .text {
+  overflow-wrap: anywhere;
 }
 
-/* Use flex-basis to form a clear two-column layout */
-.left-col {
-  flex: 1 1 40%;
+button.icon {
+  border: 1px solid var(--border);
+  background: #0f172a;
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
-.right-col {
-  flex: 1 1 60%;
+button.icon.complete { border-color: #186a3a; }
+button.icon.complete:hover { background: #0f291a; color: var(--green); }
+
+button.icon.delete { border-color: #7a1c1c; }
+button.icon.delete:hover { background: #2a0f14; color: var(--red); }
+
+.done .text {
+  text-decoration: line-through;
+  color: #9aa6b2;
 }
 
-.nice-list {
-  margin: 0.5rem 0 0 1rem;
+.footer-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
 }
 
-/* ===============================
-   Footer (Normal Flow)
-   =============================== */
-.site-footer {
-  padding: 1rem;
-  text-align: center;
-  color: #374151;
-  border-top: 1px solid #e5e7eb;
-  background: #f8fafc;
+#clearCompletedBtn, #clearAllBtn {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #0b1220;
+  color: var(--text);
+  cursor: pointer;
 }
+#clearCompletedBtn:hover { color: var(--green); background:#0f291a; }
+#clearAllBtn:hover { color: var(--red); background:#2a0f14; }
 
-/* ===============================
-   Simple Responsiveness
-   =============================== */
-@media (max-width: 720px) {
-  .content {
-    flex-direction: column;  /* stack columns on small screens */
-  }
-  .floating-box {
-    /* keep it visible but avoid overlapping small headers too much */
-    top: 8px;
-    right: 8px;
-    font-size: 0.9rem;
-  }
+/* Screen-reader only utility */
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
 }

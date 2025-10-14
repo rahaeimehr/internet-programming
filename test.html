@@ -1,33 +1,40 @@
-<form id="signupForm">
-  <label for="username">Username (3–16 letters, numbers, or _)</label>
-  <input type="text" id="username" placeholder="Enter username">
-  <p id="uErr" class="error"></p>
-  <button type="submit">Create Account</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My To-Do List</title>
+  <link rel="stylesheet" href="test.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>My To-Do List</h1>
 
-<script>
-// Get form and input elements
-const form = document.getElementById('signupForm');
-const username = document.getElementById('username');
-const uErr = document.getElementById('uErr');
+    <form id="todoForm" aria-label="Add a new task">
+      <label for="taskInput" class="sr-only">New task</label>
+      <input
+        id="taskInput"
+        type="text"
+        placeholder="e.g., Finish Assignment 7"
+        autocomplete="off"
+        aria-required="true"
+      />
+      <button id="addBtn" type="submit" aria-label="Add task">Add Task</button>
+    </form>
 
-// Regex: 3–16 letters, numbers, or underscore
-const userRe = /^[A-Za-z0-9_]{3,16}$/;
+    <section class="meta">
+      <p><strong>Total:</strong> <span id="countTotal">0</span> |
+         <strong>Done:</strong> <span id="countDone">0</span></p>
+    </section>
 
-// Helper functions to set or clear error messages
-function setError(msg) { uErr.textContent = msg; }
-function clearError() { uErr.textContent = ''; }
+    <ul id="taskList" aria-live="polite" aria-label="Task list"></ul>
 
-// Validate on submit
-form.addEventListener('submit', e => {
-  const value = username.value.trim();
-  if (!userRe.test(value)) {
-    setError('Username must be 3–16 characters: letters, numbers, or _');
-    e.preventDefault(); // Stop form submission if invalid
-  } else {
-    clearError();
-    e.preventDefault(); // Prevent reload during demo
-    alert('Form submitted successfully!');
-  }
-});
-</script>
+    <div class="footer-actions">
+      <button id="clearCompletedBtn" type="button">Clear Completed</button>
+      <button id="clearAllBtn" type="button">Clear All</button>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
