@@ -274,7 +274,69 @@ do {
 
 ---
 
-## 6.7 ES6 Features
+## 6.7 Arrays, Objects, and Dictionaries
+
+Arrays, objects, and dictionaries are essential JavaScript data structures that let us organize and manage information.
+
+### Arrays
+An **array** holds an ordered list of values, such as a shopping list or grades of students.
+
+```javascript
+let fruits = ["apple", "banana", "cherry"];
+console.log(fruits[0]); // apple
+fruits.push("orange"); // adds a new item
+console.log(fruits.length); // 4
+```
+
+Each value in an array is accessed using an **index** (starting from 0). Arrays can contain any data type — even other arrays or objects.
+
+```javascript
+let mixed = [1, "hello", true, { name: "Reza" }];
+console.log(mixed[3].name); // Reza
+```
+
+### Objects
+An **object** stores data in **key–value pairs**, making it ideal for representing entities with multiple properties.
+
+```javascript
+let student = {
+  name: "Alice",
+  age: 21,
+  major: "Computer Science"
+};
+
+console.log(student.name);  // Alice
+student.age = 22;           // modify a property
+console.log(student["major"]); // another way to access a property
+```
+
+Objects in JavaScript naturally act like **dictionaries** because each key points to a value. You can think of them as collections of related data.
+
+### Dictionaries (Using Objects and Maps)
+In other programming languages (like Python), a **dictionary** is a structure that stores key–value pairs. In JavaScript, **objects** serve the same purpose.
+
+However, ES6 introduced the **`Map`** object for more flexibility:
+
+```javascript
+let capitals = new Map();
+capitals.set("France", "Paris");
+capitals.set("Japan", "Tokyo");
+
+console.log(capitals.get("France")); // Paris
+console.log(capitals.size); // 2
+```
+
+Unlike plain objects, Maps:
+- Keep keys in insertion order.
+- Allow any data type (object, number, string) as a key.
+- Have built-in methods like `.set()`, `.get()`, and `.has()`.
+
+Use **objects** for structured data (like describing a person) and **Maps** for dynamic key–value data collections.
+
+---
+
+
+## 6.8 ES6 Features
 
 ES6 (ECMAScript 2015) introduced many improvements to JavaScript. Some important ones are:
 
@@ -286,7 +348,7 @@ ES6 (ECMAScript 2015) introduced many improvements to JavaScript. Some important
 
 ---
 
-## 6.8 DOM Manipulation Basics
+## 6.9 DOM Manipulation Basics
 
 The **DOM (Document Object Model)** is how JavaScript “sees” the HTML page.\
 We can change text, style, or add/remove elements. In this module we only introduce the basic idea. In the next module we will explain the DOM in more detail and show how to work with it step by step.
@@ -304,7 +366,7 @@ We can change text, style, or add/remove elements. In this module we only introd
 
 ---
 
-## 6.9 Events
+## 6.10 Events
 
 Events are things the user does — like clicking, typing, or loading a page.
 We can “listen” to events and react.
