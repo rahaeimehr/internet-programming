@@ -124,8 +124,8 @@
       setTimeout(() => {
         const t = tasks.find(x => x.id === task.id);
         if (!t) return;
-        completeBtn.textContent = t.done ? 'Undo' : 'Complete';
-      }, 0);
+        completeBtn.textContent = t.done ? 'Undo2' : 'Complete2';
+      }, 1000);
     });
 
     li.append(span, completeBtn, deleteBtn);
