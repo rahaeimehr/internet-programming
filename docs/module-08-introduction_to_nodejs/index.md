@@ -93,6 +93,14 @@ Below is a simplified comparison between **Node.js** and a few of the most popul
 
 If both print version numbers, you’re set.
 
+### What is the `node`?
+
+When you type the `node` command in the terminal followed by a filename, you are telling your computer to run that file using the Node.js runtime. The `node` command executes JavaScript code outside the browser. It reads your file, compiles it into machine code using the **V8 engine**, and runs it immediately. You can use node to execute scripts, test code snippets, or run complete web servers built with frameworks like `Express`.
+
+### What is the `npm`?
+
+**npm (Node Package Manager)** is the tool that comes bundled with Node.js. It manages packages — reusable blocks of code that extend your application’s functionality. You can use `npm` to install libraries, update them, or share your own code with others. For example, when you type `npm install express`, `npm` automatically downloads and installs `Express` and its dependencies so you can use them in your project.
+
 ## 8.4 Project Setup for Using ES Modules (See section 8.8)
 
 ### Step 1: Create a Project Folder
