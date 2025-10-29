@@ -45,3 +45,4 @@ nav:
       - "Module 06: JavaScript Fundamentals": module-06-javascript_fundamentals/index.md
       - "Module 07: JavaScript & the Browser": module-07-javascript_browser/index.md
       - "Module 08: Introduction to Node.js": module-08-introduction_to_nodejs/index.md
+      - "Module 09: Web Servers with Node.js and Express": module-09-webserver_express/index.md

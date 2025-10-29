@@ -1,4 +1,4 @@
-# Module 8 — Introduction to Node.js (Modern)
+# Module 8 — Introduction to Node.js
 
 > **Focus:** Run JavaScript outside the browser, understand Node’s module systems, and set up a clean ES Modules workflow.
 
