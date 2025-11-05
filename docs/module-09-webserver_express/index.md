@@ -231,6 +231,129 @@ Common built-in middleware includes:
 - `express.json()` — parses incoming JSON data.
 
 ---
+### 9.7.1 Writing Two Custom Middleware Functions for a Specific Route
+
+```js
+import express from 'express';
+const app = express();
+
+// Middleware #1 — simple logger
+function loggerMiddleware(req, res, next) {
+  console.log(`${req.method} ${req.url}`);
+  next();
+}
+
+// Middleware #2 — attach a timestamp
+function timestampMiddleware(req, res, next) {
+  req.requestTime = new Date().toISOString();
+  next();
+}
+
+// Using both on a single route
+app.get('/hello', loggerMiddleware, timestampMiddleware, (req, res) => {
+  res.send(`Hello! Request received at ${req.requestTime}`);
+});
+
+app.listen(3000, () => {
+  console.log('Server running at http://localhost:3000');
+});
+```
+
+**What happens?**
+
+1. A request arrives for `/hello`.
+2. `loggerMiddleware` runs first and calls `next()` function in the pipeline.
+3. `timestampMiddleware` runs next and calls `next()` function in the pipeline.
+4. The final route handler sends the response.
+
+!!! Note
+    Execution order matters. Middlewares run **left‑to‑right** as listed in the route (or **top‑to‑bottom** when registered globally with `app.use`).
+
+---
+
+### 9.7.2 Applying Middleware Globally (All Routes)
+
+You need to register your middleware functions with `app.use()` so every request goes through these functions:
+
+```js
+import express from 'express';
+const app = express();
+
+function loggerMiddleware(req, res, next) {
+  console.log(`${req.method} ${req.url}`);
+  next();
+}
+
+function timestampMiddleware(req, res, next) {
+  req.requestTime = new Date().toISOString();
+  next();
+}
+
+// Global registration — order matters
+app.use(loggerMiddleware);
+app.use(timestampMiddleware);
+
+app.get('/', (req, res) => {
+  res.send(`Welcome! (at ${req.requestTime})`);
+});
+
+app.get('/hello', (req, res) => {
+  res.send(`Hello there! (at ${req.requestTime})`);
+});
+
+app.listen(3000, () => {
+  console.log('Server running at http://localhost:3000');
+});
+```
+
+!!! warning
+  
+    If you forget to call `next()` (and you do not end the response), the request will *hang*.
+
+---
+
+### 9.7.3 Limiting Middleware to a Path Prefix (Scoped)
+
+Use a path argument with `app.use()` to scope the middleware to routes that begin with that prefix:
+
+```js
+import express from 'express';
+const app = express();
+
+function loggerMiddleware(req, res, next) {
+  console.log(`API request: ${req.method} ${req.url}`);
+  next();
+}
+
+function timestampMiddleware(req, res, next) {
+  req.requestTime = new Date().toISOString();
+  next();
+}
+
+// Only apply to routes starting with "/api"
+app.use('/api', loggerMiddleware, timestampMiddleware);
+
+app.get('/', (req, res) => {
+  res.send('Home page — no scoped middleware here');
+});
+
+app.get('/api/users', (req, res) => {
+  res.send(`User list (requested at ${req.requestTime})`);
+});
+
+app.get('/api/products', (req, res) => {
+  res.send(`Product list (requested at ${req.requestTime})`);
+});
+
+app.listen(3000, () => {
+  console.log('Server running at http://localhost:3000');
+});
+```
+
+**Result:** Requests to `/api/*` pass through both middlewares; other routes skip them.
+
+---
+
 
 ## 9.8 Summary
 
