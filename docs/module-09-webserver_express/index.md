@@ -67,8 +67,23 @@ This code creates a Node.js server that handles two routes (`/` and `/about`) an
 While this approach works, it becomes inefficient for larger applications that require multiple routes and more advanced logic.
 
 ---
+## 9.3 Framework and Express.js
 
-## 9.3 Setting Up Express in VS Code
+A **framework** is a reusable, structured collection of libraries, tools, and conventions that provide a foundation for building applications. It defines how code is organized and offers built‑in features (like routing, middleware, and error handling) so developers don’t have to create everything from scratch.
+
+**Express.js** is a fast, minimalist web framework for **Node.js**. It provides a simple interface for building web servers and APIs by simplifying common tasks such as routing, handling requests, and managing responses.
+
+### Key Features
+- **Simplified Routing:** Define URL paths and their responses with concise syntax.
+- **Middleware Support:** Easily add functions that process requests before sending responses (e.g., for logging or authentication).
+- **Static File Serving:** Serve HTML, CSS, JavaScript, and images directly with one line of code.
+- **Integration-Friendly:** Works seamlessly with databases, templating engines, and RESTful APIs.
+
+Express saves developers from manually managing low-level server logic and helps organize applications into clear, modular components. It’s the foundation for most Node.js web applications.
+
+---
+
+## 9.4 Setting Up Express in VS Code
 
 Express.js simplifies server creation. Follow these steps to get started:
 
@@ -133,7 +148,7 @@ C:\Users\YourName\Desktop\express-demo
 
 ---
 
-## 9.4 Routing in Express
+## 9.5 Routing in Express
 
 A **route** defines how your server responds to a request for a specific URL or HTTP method.
 
@@ -157,7 +172,7 @@ Now your server can return different responses depending on the requested route.
 
 ---
 
-## 9.5 Serving Static Files
+## 9.6 Serving Static Files
 
 Express can easily serve **static files** such as HTML, CSS, images, and client-side JavaScript.
 
@@ -194,7 +209,7 @@ Express can easily serve **static files** such as HTML, CSS, images, and client-
 
 ---
 
-## 9.6 Middleware Basics
+## 9.7 Middleware Basics
 
 **Middleware** are functions that execute between receiving a request and sending a response. They are powerful tools for logging, authentication, and data parsing.
 
@@ -217,7 +232,7 @@ Common built-in middleware includes:
 
 ---
 
-## 9.7 Summary
+## 9.8 Summary
 
 In this module, you learned how to:
 
