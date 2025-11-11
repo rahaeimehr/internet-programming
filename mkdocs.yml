@@ -47,4 +47,6 @@ nav:
       - "Module 08: Introduction to Node.js": module-08-introduction_to_nodejs/index.md
       - "Module 09: Web Servers with Node.js and Express": module-09-webserver_express/index.md
       - "Module 10: Templating and Forms with Express": module-10-templating_forms/index.md
+      - "Module 11: Working with Data": module-11-working-with-data/index.md
+
       
