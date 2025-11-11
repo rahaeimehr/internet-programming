@@ -237,44 +237,7 @@ switch(day) {
 ```
 
 ---
-
-## 6.6 Loops
-
-Loops repeat code.
-
-### `for` loop
-
-```javascript
-for (let i = 1; i <= 5; i++) {
-  console.log("Number " + i);
-}
-```
-
-### `while` loop
-
-```javascript
-let i = 1;
-while (i <= 5) {
-  console.log("Number " + i);
-  i++;
-}
-```
-
-### `do...while` loop
-
-Always runs the block first, then checks the condition.
-
-```javascript
-let i = 1;
-do {
-  console.log("Number " + i);
-  i++;
-} while (i <= 5);
-```
-
----
-
-## 6.7 Arrays, Objects, and Dictionaries
+## 6.6 Arrays, Objects, and Dictionaries
 
 Arrays, objects, and dictionaries are essential JavaScript data structures that let us organize and manage information.
 
@@ -335,6 +298,107 @@ Use **objects** for structured data (like describing a person) and **Maps** for 
 
 ---
 
+## 6.7 Loops
+
+Loops repeat code.
+
+### `for` loop
+
+```javascript
+for (let i = 1; i <= 5; i++) {
+  console.log("Number " + i);
+}
+```
+
+### `while` loop
+
+```javascript
+let i = 1;
+while (i <= 5) {
+  console.log("Number " + i);
+  i++;
+}
+```
+
+### `do...while` loop
+
+Always runs the block first, then checks the condition.
+
+```javascript
+let i = 1;
+do {
+  console.log("Number " + i);
+  i++;
+} while (i <= 5);
+```
+
+### `forEach()` Loop
+
+The `forEach()` method is a simpler way to loop through all the elements of an **array**.  
+It automatically goes through each item, in order, and executes a given function for each one.
+
+```javascript
+let fruits = ["apple", "banana", "cherry"];
+
+fruits.forEach(function(item) {
+  console.log(item);
+});
+```
+
+Output:
+```
+apple
+banana
+cherry
+```
+
+You can also use **arrow functions** for cleaner syntax:
+
+```javascript
+fruits.forEach(item => console.log(item));
+```
+
+!!! note
+    - The `forEach()` method works only on **arrays**.  
+    - It does **not** return a new array; it just performs an action for each element.
+
+---
+
+#### Callback Parameters
+
+The function you pass to `forEach()` can take up to **three parameters**:
+
+```javascript
+array.forEach(function(item, index, array) {
+  // item  → current element
+  // index → position of the element
+  // array → the original array
+});
+```
+
+Example:
+
+```javascript
+let numbers = [10, 20, 30];
+
+numbers.forEach((num, index) => {
+  console.log("Index:", index, "Value:", num);
+});
+```
+
+Output:
+```
+Index: 0 Value: 10
+Index: 1 Value: 20
+Index: 2 Value: 30
+```
+
+!!! tip
+    Use `forEach()` when you want to perform an action for every item in an array, such as displaying a list, logging data, or updating page elements.
+
+
+
+---
 
 ## 6.8 ES6 Features
 
