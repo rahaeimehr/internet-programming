@@ -244,8 +244,84 @@ db.prepare('INSERT INTO users (name, email) VALUES (?, ?)').run(name, email);
 SQLite is more robust and scalable, while JSON is best for learning or small-scale projects.
 
 ---
+## 11.5 Example
 
-## 11.6 Summary
+This section demonstrates a **single** EJS template that can display data coming from **either** JSON or SQLite sources. 
+
+**Scenario 1: Using JSON Storage**
+
+```js
+// app.js
+import fs from 'fs';
+import express from 'express';
+const app = express();
+app.set('view engine', 'ejs');
+
+// JSON Scenario
+app.get('/', (req, res) => {
+  const users = JSON.parse(fs.readFileSync('data.json', 'utf8'));
+  const title = 'Users (JSON)';
+  res.render('users', { title, users });
+});
+
+```
+**Scenario 2: Using SQLite Storage**
+
+```js
+// app.js
+import express from 'express';
+import db from './db.js';
+const app = express();
+app.set('view engine', 'ejs');
+
+// SQLite Scenario
+app.get('/users-sqlite', (req, res) => {
+  const users = db.prepare('SELECT id, name, email FROM users ORDER BY id DESC').all();
+  const title = 'Users (SQLite)';
+  res.render('users', { title, users });
+});
+
+```
+
+**Template (EJS):`views/users.ejs`**
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title><%= title %></title>
+</head>
+<body>
+  <h1><%= title %></h1>
+  <table cellspacing="0" cellpadding="6">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (!users || users.length === 0) { %>
+        <tr><td colspan="3">No data</td></tr>
+      <% } else { %>
+        <% users.forEach(u => { %>
+          <tr>
+            <td><%= u.id %></td>
+            <td><%= u.name %></td>
+            <td><%= u.email %></td>
+          </tr>
+        <% }) %>
+      <% } %>
+    </tbody>
+  </table>
+</body>
+</html>
+```
+
+---
+## 11.7 Summary
 
 Persistent storage allows applications to retain data across sessions, restarts, and failures. Node.js doesn’t have a single standard for databases, but it provides a rich ecosystem of packages for every need. In this module, we explored two practical approaches:
 
