@@ -224,8 +224,94 @@ app.listen(3000, () => {
     > “Take the `name`, `email`, and `message` properties from the `req.body` object and create variables with those names.”
 
 ---
+## 10.5 Getting Parameters with GET Requests
 
-## 10.5 Summary
+When sending parameters using the **GET** method, there are two main approaches:
+
+1. **Add parameters as key–value pairs** at the end of the URL by adding a question mark (`?`) and separating multiple pairs with an ampersand (`&`).
+2. **Embed parameters directly in the route** as part of the URL path.
+
+For example:
+
+- Using key–value pairs → `/post?id=5`
+- Embedding in the route → `/post/5`
+
+---
+
+### Understanding GET Parameters
+
+When a user clicks a link such as:
+
+```html
+<a href="/post?id=5">View Post</a>
+```
+
+the browser sends a **GET** request to the server with a *query string* (`?id=5`) attached to the URL. Express can read this value easily through `req.query`.
+
+---
+
+### Example 1 — Using Query Parameters
+
+```javascript
+app.get('/post', (req, res) => {
+  const postId = req.query.id;  // Access ?id=5
+  res.send(`You requested post number ${postId}`);
+});
+```
+
+If the user visits `http://localhost:3000/post?id=5`, the page will display:
+
+```
+You requested post number 5
+```
+
+---
+
+### Example 2 — Using Route Parameters
+
+Now let’s look at the same example using a **route parameter** instead of a query string.
+
+```javascript
+app.get('/post/:id', (req, res) => {
+  const postId = req.params.id;  // Access /post/5
+  res.send(`You requested post number ${postId}`);
+});
+```
+
+In this version, the URL looks cleaner and more semantic:
+
+```
+http://localhost:3000/post/5
+```
+
+!!! tip 
+    Query parameters are useful for passing small pieces of data in a URL, such as filters, search keywords, or IDs.
+    You can attach multiple parameters by separating them with `&`, for example:
+    `/search?term=html&category=tutorial`.
+
+---
+
+### Comparison: Query Parameters vs. Route Parameters
+
+| Type                | URL Example  | Accessed By     | Description                         |
+| ------------------- | ------------ | --------------- | ----------------------------------- |
+| **Query parameter** | `/post?id=5` | `req.query.id`  | Added after `?` in the URL          |
+| **Route parameter** | `/post/5`    | `req.params.id` | Defined in the route as `/post/:id` |
+
+!!! note 
+    You can combine both in the same route if needed. For example:<br>
+    `/post/5?mode=edit` → `req.params.id` is `5`, and `req.query.mode` is `"edit"`.
+
+!!! tip
+
+    Both query parameters and route parameters allow you to send data through URLs.
+
+    - Use **query parameters** for optional or filter-type data.
+    - Use **route parameters** when the value identifies a specific resource (like a post or user).
+
+---
+
+## 10.6 Summary
 
 In this module, you learned how to:
 
