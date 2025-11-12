@@ -323,16 +323,21 @@ In this module, you learned how to:
 
 In the next module, you will learn how to **work with databases** and connect your Express app to persistent data sources.
 
-<!---
 
 ## Helper Videos
 
-### Part 1
+### Templates
 
 <iframe width="100%" height="315"
-src="https://www.youtube.com/embed/zT3HQeEkd6k"
+src="https://www.youtube.com/embed/V5zAdw8gAso"
 title="YouTube video player" frameborder="0"
 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 allowfullscreen></iframe>
 
--->
+### Templates for Templates
+
+<iframe width="100%" height="315"
+src="https://www.youtube.com/embed/DTRJQRWjVlY"
+title="YouTube video player" frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen></iframe>
