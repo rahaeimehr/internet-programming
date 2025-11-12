@@ -226,21 +226,6 @@ SQLite acts like a lightweight version of MySQL or PostgreSQL, ideal for small t
 | **Ease of Setup** | Simplest (no install)                 | Minimal setup (install library)            |
 | **Best Use Case** | Demos, configs, prototypes            | Realistic small to medium sites            |
 
-### Example Comparison
-
-**Add a user using JSON:**
-
-```js
-users.push({ id: Date.now(), name, email });
-fs.writeFileSync(FILE, JSON.stringify(users));
-```
-
-**Add a user using SQLite:**
-
-```js
-db.prepare('INSERT INTO users (name, email) VALUES (?, ?)').run(name, email);
-```
-
 SQLite is more robust and scalable, while JSON is best for learning or small-scale projects.
 
 ---
