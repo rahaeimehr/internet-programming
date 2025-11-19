@@ -19,3 +19,4 @@ This course provides a practical introduction to building modern web application
 - [**Module 9:** Web Servers with Express](./module-09-webserver_express/index.md)  
 - [**Module 10:** Templating and Forms with Express](./module-10-templating_forms/index.md)  
 - [**Module 11:** Working with Data](./module-11-working-with-data/index.md)  
+- [**Module 12:** State Management and Authentication](./module-12-state-management-and-authentication/index.md)  
