@@ -349,3 +349,11 @@ src="https://www.youtube.com/embed/2stXZsKZybI"
 title="YouTube video player" frameborder="0"
 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 allowfullscreen></iframe>
+
+### Handling GET Requests
+
+<iframe width="100%" height="315"
+src="https://www.youtube.com/embed/UgLlDg18M0U"
+title="YouTube video player" frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen></iframe>
