@@ -407,3 +407,7 @@ app.get('/logout', (req, res) => {
 - Route protection ensures only logged-in users can access certain pages.
 - Destroying the session logs the user out.
 
+--- 
+
+
+

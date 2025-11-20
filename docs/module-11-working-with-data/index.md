@@ -306,7 +306,7 @@ app.get('/users-sqlite', (req, res) => {
 ```
 
 ---
-## 11.7 Summary
+## 11.6 Summary
 
 Persistent storage allows applications to retain data across sessions, restarts, and failures. Node.js doesn’t have a single standard for databases, but it provides a rich ecosystem of packages for every need. In this module, we explored two practical approaches:
 
@@ -315,3 +315,20 @@ Persistent storage allows applications to retain data across sessions, restarts,
 
 Mastering these approaches equips you to build real, data-driven applications that combine **Node.js**, **Express**, and **EJS** into complete web systems.
 
+## Helper Videos
+
+### JSON Storage
+
+<iframe width="100%" height="315"
+src="https://www.youtube.com/embed/aAwBe8YgGyE"
+title="YouTube video player" frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen></iframe>
+
+### SQLite Storage
+
+<iframe width="100%" height="315"
+src="https://www.youtube.com/embed/OCCk1bqE3kA"
+title="YouTube video player" frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen></iframe>
